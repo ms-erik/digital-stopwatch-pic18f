@@ -1,4 +1,4 @@
-int contador;
+int contador; //inicia um contador para o display
 const int display[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67};
 
 void main(){
@@ -36,8 +36,8 @@ void main(){
     TMR1H = 0x0B; // Primeiro byte do TMR1
     TMR1L = 0xDC; // Último byte do TMR1
 
-    TMR0H=0xC2;
-    TMR0L=0xF7;
+    TMR0H=0xC2; //primeiro byte do TMR0
+    TMR0L=0xF7; //último byte do TMRO
 
 
     while(1);
