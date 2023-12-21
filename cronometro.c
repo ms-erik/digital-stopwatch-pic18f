@@ -1,8 +1,8 @@
-int count_array;
-const int display_dictionary[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67};
+int contador;
+const int display[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67};
 
 void main(){
-    count_array=0;
+    contador=0;
 
     TRISB.RB0 = 1; // Configura RB0 como um botão de entrada
     TRISB.RB1 = 1; // Configura RB1 como um botão de entrada
@@ -72,7 +72,7 @@ void INTERRUPTION_HIGH() iv 0x0008 ics ICS_AUTO {
         PIR1.TMR1IF = 0; // Zera a flag de interrupção do temporizador TMR1
     }
     //Atualiza o display de 7 segmentos
-        PORTD = display_dictionary[count_array];
-        count_array = (count_array >= 9) ? 0 : count_array + 1;
+        PORTD = display[contador];
+        contador = (contador>= 9) ? 0 : contador + 1;
 }
 
